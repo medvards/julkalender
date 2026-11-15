@@ -203,37 +203,50 @@
 
         // Funktion för att ladda JSON-data
         async function loadCalendarData() {
-            try {
-                const response = await fetch('calendar-data.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                calendarData = await response.json();
-            } catch (error) {
-                console.warn("Kunde inte ladda calendar-data.json (möjligen p.g.a CORS vid lokal testning). Använder reservdata.", error);
-                
-                // Reservdata ifall man dubbelklickar på filen lokalt och fetch blockeras
-                for (let i = 1; i <= 24; i++) {
-                    let mediaType = 'image';
-                    let mediaUrl = `https://placehold.co/600x400/165B33/FFF?text=Julbild+${i}`;
-                    
-                    if (i === 2) {
-                        mediaType = 'youtube';
-                        mediaUrl = 'https://www.youtube.com/embed/j9jbdgZidu8';
-                    } else if (i === 3) {
-                        mediaType = 'spotify';
-                        mediaUrl = 'https://open.spotify.com/embed/track/0bYg9bo50gSsH3LtXe2SQn?utm_source=generator';
-                    }
+            // Testa både med understreck och bindestreck, och lägg till tidsstämpel för att undvika cache
+            const timestamp = new Date().getTime();
+            const possibleFiles = [
+                `calendar_data.json?v=${timestamp}`,
+                `calendar-data.json?v=${timestamp}`
+            ];
 
-                    calendarData.push({
-                        day: i,
-                        mediaType: mediaType,
-                        mediaUrl: mediaUrl,
-                        text: `Reservdata: Här är ett mysigt julmeddelande för den ${i} december!`,
-                        link: "https://example.com",
-                        linkText: "Dagens erbjudande"
-                    });
+            for (const file of possibleFiles) {
+                try {
+                    const response = await fetch(file);
+                    if (response.ok) {
+                        calendarData = await response.json();
+                        console.log(`Lyckades ladda data från ${file}`);
+                        return; // Avbryt loopen eftersom vi hittade filen!
+                    }
+                } catch (e) {
+                    // Fortsätt till nästa filnamn om detta misslyckades
                 }
+            }
+
+            console.warn("Kunde inte ladda JSON-filen (möjligen p.g.a lokal testning utan server eller att filen saknas). Använder reservdata.");
+            showToast("⚠️ Kör på reservdata (JSON-filen kunde inte läsas in)");
+            
+            // Reservdata ifall man dubbelklickar på filen lokalt och fetch blockeras
+            for (let i = 1; i <= 24; i++) {
+                let mediaType = 'image';
+                let mediaUrl = `https://placehold.co/600x400/165B33/FFF?text=Julbild+${i}`;
+                
+                if (i === 2) {
+                    mediaType = 'youtube';
+                    mediaUrl = 'https://www.youtube.com/embed/j9jbdgZidu8';
+                } else if (i === 3) {
+                    mediaType = 'spotify';
+                    mediaUrl = 'https://open.spotify.com/embed/track/0bYg9bo50gSsH3LtXe2SQn?utm_source=generator';
+                }
+
+                calendarData.push({
+                    day: i,
+                    mediaType: mediaType,
+                    mediaUrl: mediaUrl,
+                    text: `Reservdata: Här är ett mysigt julmeddelande för den ${i} december!`,
+                    link: "https://example.com",
+                    linkText: "Dagens erbjudande"
+                });
             }
         }
 
