@@ -86,10 +86,20 @@
         </div>
 
         <!-- Footer -->
-        <footer class="text-center mt-16 pb-8 text-gray-300 text-sm drop-shadow-md">
+        <footer class="text-center mt-16 pb-8 text-gray-300 text-sm drop-shadow-md space-y-3">
             <p>&copy; 2026 God Jul & Gott Nytt År</p>
+            <div>
+                <button id="toggle-test-mode" onclick="toggleTestMode()" class="px-4 py-1.5 rounded-full bg-black/40 hover:bg-black/60 text-amber-300 border border-amber-400/30 text-xs transition-colors">
+                    Testläge: Av (Klicka för att provöppna alla luckor)
+                </button>
+            </div>
         </footer>
     </main>
+
+    <!-- Notis / Toast-meddelande när en lucka är låst -->
+    <div id="toast-message" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-red-900/95 text-amber-100 border-2 border-amber-400 px-6 py-3 rounded-full shadow-2xl font-medium text-sm sm:text-base transition-all duration-300 opacity-0 pointer-events-none translate-y-4 text-center w-max max-w-[90vw]">
+        Tålamod! Denna lucka får inte öppnas än.
+    </div>
 
     <!-- Modal / Popup för luckans innehåll (dold som standard) -->
     <div id="modal-backdrop" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn hidden-el">
@@ -139,8 +149,42 @@
 
         // --- VARIABLER & TILLSTÅND ---
         let openedDoors = [];
+        let testMode = false;
+        let toastTimeout;
         const gridContainer = document.getElementById('calendar-grid');
         const modalBackdrop = document.getElementById('modal-backdrop');
+
+        // Växla testläge på/av
+        function toggleTestMode() {
+            testMode = !testMode;
+            const btn = document.getElementById('toggle-test-mode');
+            if (testMode) {
+                btn.textContent = "Testläge: PÅ (Alla luckor går att öppna)";
+                btn.classList.add('bg-amber-500', 'text-slate-900', 'font-bold');
+                btn.classList.remove('bg-black/40', 'text-amber-300');
+                showToast("Testläge aktiverat! Nu kan du klicka på alla luckor.");
+            } else {
+                btn.textContent = "Testläge: Av (Klicka för att provöppna alla luckor)";
+                btn.classList.remove('bg-amber-500', 'text-slate-900', 'font-bold');
+                btn.classList.add('bg-black/40', 'text-amber-300');
+                showToast("Testläge avstängt. Normal datumspärr gäller.");
+            }
+            renderCalendar();
+        }
+
+        // Visa snyggt meddelande längst ner på skärmen
+        function showToast(message) {
+            const toast = document.getElementById('toast-message');
+            toast.textContent = message;
+            toast.classList.remove('opacity-0', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-4');
+            }, 3000);
+        }
 
         // Starta kalendern när sidan har laddats
         window.addEventListener('DOMContentLoaded', async () => {
@@ -220,8 +264,8 @@
             calendarData.forEach(item => {
                 const isOpened = openedDoors.includes(item.day);
                 // Kontrollera om låset ska visas
-                // Om månaden är december, visa lås på framtida datum
-                const isFutureDate = (currentMonth === 11 && item.day > currentDay) || currentMonth < 11;
+                // Om testläge är på visas inga lås, annars visas lås på framtida datum
+                const isFutureDate = !testMode && ((currentMonth === 11 && item.day > currentDay) || currentMonth < 11);
                 
                 // Skapa knapp-elementet
                 const btn = document.createElement('button');
@@ -281,18 +325,14 @@
             const currentMonth = today.getMonth(); // 11 = December
             const currentDay = today.getDate();
 
-            // --- TEST/DEMO LÄGE ---
-            // Om du vill kunna klicka på alla luckor direkt vid testning, 
-            // ändra isAllowedDate till: const isAllowedDate = true;
-            
             const isDecember = currentMonth === 11;
-            const isAllowedDate = isDecember && item.day <= currentDay;
+            const isAllowedDate = testMode || (isDecember && item.day <= currentDay);
 
             // Har användaren redan öppnat denna?
             const isAlreadyOpened = openedDoors.includes(item.day);
 
             if (isAllowedDate || isAlreadyOpened) {
-                // Spara att luckan är öppnad
+                // Spara att luckan är öppnad (men bara om vi inte bara testar framtida luckor, eller spara ändå)
                 if (!isAlreadyOpened) {
                     openedDoors.push(item.day);
                     localStorage.setItem('openedDoors2026', JSON.stringify(openedDoors));
@@ -300,11 +340,13 @@
                 }
                 openModal(item);
             } else {
-                // Om dagen inte har infallit än, skaka på knappen!
+                // Om dagen inte har infallit än, skaka på knappen och visa meddelande!
                 buttonElement.classList.add('animate-shake');
                 setTimeout(() => {
                     buttonElement.classList.remove('animate-shake');
                 }, 500);
+                
+                showToast(`🎅 Tålamod! Lucka ${item.day} får inte öppnas förrän den ${item.day} december.`);
             }
         }
 
