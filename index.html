@@ -134,31 +134,8 @@
 
     <script>
         // --- DATA FÖR ALLA 24 LUCKOR ---
-        // Här lägger du in allt ditt innehåll. 
-        // Välj mediaType: 'image', 'youtube' eller 'spotify'
-        const calendarData = [];
-        for (let i = 1; i <= 24; i++) {
-            let mediaType = 'image';
-            let mediaUrl = `https://placehold.co/600x400/165B33/FFF?text=Julbild+${i}`;
-            
-            // Exempel på hur man använder YouTube och Spotify (lucka 2 & 3)
-            if (i === 2) {
-                mediaType = 'youtube';
-                mediaUrl = 'https://www.youtube.com/embed/j9jbdgZidu8';
-            } else if (i === 3) {
-                mediaType = 'spotify';
-                mediaUrl = 'https://open.spotify.com/embed/track/0bYg9bo50gSsH3LtXe2SQn?utm_source=generator';
-            }
-
-            calendarData.push({
-                day: i,
-                mediaType: mediaType,
-                mediaUrl: mediaUrl,
-                text: `Här är ett mysigt julmeddelande eller en rolig utmaning för den ${i} december! Ha en underbar dag!`,
-                link: "https://example.com",
-                linkText: "Dagens erbjudande"
-            });
-        }
+        // Datan hämtas nu från kalender-data.json
+        let calendarData = [];
 
         // --- VARIABLER & TILLSTÅND ---
         let openedDoors = [];
@@ -166,16 +143,55 @@
         const modalBackdrop = document.getElementById('modal-backdrop');
 
         // Starta kalendern när sidan har laddats
-        window.addEventListener('DOMContentLoaded', () => {
+        window.addEventListener('DOMContentLoaded', async () => {
             // Hämta sparade luckor från LocalStorage
             const savedDoors = localStorage.getItem('openedDoors2026');
             if (savedDoors) {
                 openedDoors = JSON.parse(savedDoors);
             }
             
+            // Hämta kalenderdata från JSON-filen
+            await loadCalendarData();
+
             createSnow();
             renderCalendar();
         });
+
+        // Funktion för att ladda JSON-data
+        async function loadCalendarData() {
+            try {
+                const response = await fetch('calendar-data.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                calendarData = await response.json();
+            } catch (error) {
+                console.warn("Kunde inte ladda calendar-data.json (möjligen p.g.a CORS vid lokal testning). Använder reservdata.", error);
+                
+                // Reservdata ifall man dubbelklickar på filen lokalt och fetch blockeras
+                for (let i = 1; i <= 24; i++) {
+                    let mediaType = 'image';
+                    let mediaUrl = `https://placehold.co/600x400/165B33/FFF?text=Julbild+${i}`;
+                    
+                    if (i === 2) {
+                        mediaType = 'youtube';
+                        mediaUrl = 'https://www.youtube.com/embed/j9jbdgZidu8';
+                    } else if (i === 3) {
+                        mediaType = 'spotify';
+                        mediaUrl = 'https://open.spotify.com/embed/track/0bYg9bo50gSsH3LtXe2SQn?utm_source=generator';
+                    }
+
+                    calendarData.push({
+                        day: i,
+                        mediaType: mediaType,
+                        mediaUrl: mediaUrl,
+                        text: `Reservdata: Här är ett mysigt julmeddelande för den ${i} december!`,
+                        link: "https://example.com",
+                        linkText: "Dagens erbjudande"
+                    });
+                }
+            }
+        }
 
         // Skapa den visuella snön
         function createSnow() {
