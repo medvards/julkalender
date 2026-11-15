@@ -10,16 +10,16 @@
   {
     "day": 2,
     "mediaType": "youtube",
-    "mediaUrl": "https://www.youtube.com/embed/j9jbdgZidu8",
-    "text": "Dags för lite klassisk julmusik. Slappna av och njut av denna video!",
-    "link": "",
-    "linkText": ""
+    "mediaUrl": "https://youtu.be/w-Fw484lBeA?si=aK1M6TlQsOUqkl4g",
+    "text": "Tänd ett ljus!",
+    "link": "https://youtu.be/w-Fw484lBeA?si=aK1M6TlQsOUqkl4g",
+    "linkText": "Tänd ett ljus"
   },
   {
     "day": 3,
     "mediaType": "spotify",
     "mediaUrl": "https://open.spotify.com/embed/track/0bYg9bo50gSsH3LtXe2SQn?utm_source=generator",
-    "text": "Lyssna på denna jullåt och kom i rätt stämning inför helgen.",
+    "text": "Vem gillar inte denna gamla goding :-)",
     "link": "https://open.spotify.com",
     "linkText": "Öppna i Spotify"
   },
