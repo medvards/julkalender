@@ -122,10 +122,10 @@
   {
     "day": 16,
     "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+16",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 16 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaUrl": "Modernfox.jpg",
+    "text": "Beautiful, crazy, can't help by amaze me",
+    "link": "https://open.spotify.com/track/5v05DdK7dCqmImUj4PLxOE?si=bc13f0b4514b45a6",
+    "linkText": "Dagens country"
   },
   {
     "day": 17,
@@ -172,7 +172,7 @@
     "mediaType": "image",
     "mediaUrl": "Modernfox.jpg",
     "text": "Men aldrig ska jag ångra, inte en sekund. Sorger suddas ut, blir en lycklig stund.",
-    "link": "https://open.spotify.com/track/6YGqMb6MmqcwIHaDSCA7Nq?si=3c0b6960ecc3440a",
+    "link": "https://open.spotify.com/track/3Zta1ilm1Qte2bSkTAgAqI?si=5b582e6abe624ae2",
     "linkText": "Vi har kommit långt!"
   },
   {
@@ -180,7 +180,7 @@
     "mediaType": "image",
     "mediaUrl": "Modernfox.jpg",
     "text": "Dan före dopparedan! Nu är det nära ...",
-    "link": "https://open.spotify.com/track/6YGqMb6MmqcwIHaDSCA7Nq?si=3c0b6960ecc3440a",
+    "link": "https://open.spotify.com/track/3DYsjeDdE43qmJn66pb0Vl?si=84e8bb8c9ce44d3b",
     "linkText": "En klassiker"
   },
   {
