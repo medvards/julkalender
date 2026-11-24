@@ -1,51 +1,51 @@
 [
   {
     "day": 1,
-    "mediaType": "image",
-    "mediaUrl": "https://i.pinimg.com/1200x/55/b8/01/55b801ec06ad40cd73b207a2775e5590.jpg",
+    "mediaType": "spotify",
+    "mediaUrl": "https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v?si=d19bbc97f5e04f10",
     "text": "Äntligen december, puss hjärtat",
-    "link": "https://youtu.be/MCrdpWoLtHM?si=6IcZANJJQyHGWtb-",
-    "linkText": "Nu kör vi!"
+    "link": "https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v?si=d19bbc97f5e04f10",
+    "linkText": "Perfect ❤️"
   },
   {
     "day": 2,
     "mediaType": "youtube",
-    "mediaUrl": "https://youtu.be/w-Fw484lBeA?si=aK1M6TlQsOUqkl4g",
-    "text": "Tänd ett ljus!",
-    "link": "https://youtu.be/w-Fw484lBeA?si=aK1M6TlQsOUqkl4g",
-    "linkText": "Tänd ett ljus"
+    "mediaUrl": "https://youtu.be/0ytUM2Bli30?si=B55sgiG49jmVpZvQ",
+    "text": "Nu turar vi",
+    "link": "https://youtu.be/0ytUM2Bli30?si=B55sgiG49jmVpZvQ",
+    "linkText": "Tur i turen"
   },
   {
     "day": 3,
     "mediaType": "spotify",
-    "mediaUrl": "https://open.spotify.com/embed/track/0bYg9bo50gSsH3LtXe2SQn?utm_source=generator",
+    "mediaUrl": "https://open.spotify.com/track/0Ny4yM9JFFuCUZ497ouxKe?si=b01682144afc4a91",
     "text": "Vem gillar inte denna gamla goding :-)",
-    "link": "https://open.spotify.com",
-    "linkText": "Öppna i Spotify"
+    "link": "https://open.spotify.com/track/0Ny4yM9JFFuCUZ497ouxKe?si=b01682144afc4a91",
+    "linkText": "Är du redo?"
   },
   {
     "day": 4,
-    "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+4",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 4 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaType": "spotify",
+    "mediaUrl": "https://open.spotify.com/track/3ZFmytdiIda4hXObbBO5c6?si=75c83c17eeba4856",
+    "text": "Nu vill jag hålla dig nära!",
+    "link": "https://open.spotify.com/track/3ZFmytdiIda4hXObbBO5c6?si=75c83c17eeba4856",
+    "linkText": "Håll mig hårt!"
   },
   {
     "day": 5,
-    "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+5",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 5 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaType": "youtube",
+    "mediaUrl": "https://youtu.be/MCrdpWoLtHM?si=CwkCbI7xd-qZRsth",
+    "text": "Detta ska bli kul att prova!",
+    "link": "https://youtu.be/MCrdpWoLtHM?si=CwkCbI7xd-qZRsth",
+    "linkText": "Dagens test!"
   },
   {
     "day": 6,
-    "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+6",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 6 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaType": "spotify",
+    "mediaUrl": "https://open.spotify.com/track/6A0IZ3A7iGKF9QIOKYHwrF?si=ff3ab8f5959e41b6",
+    "text": "På med takten!",
+    "link": "https://open.spotify.com/track/6A0IZ3A7iGKF9QIOKYHwrF?si=ff3ab8f5959e41b6",
+    "linkText": "Nu blir det åka av!"
   },
   {
     "day": 7,
