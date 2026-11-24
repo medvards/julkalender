@@ -9,15 +9,15 @@
   },
   {
     "day": 2,
-    "mediaType": "youtube",
+    "mediaType": "image",
     "mediaUrl": "Bugg.jpg",
     "text": "Nu turar vi",
     "link": "https://youtu.be/0ytUM2Bli30?si=B55sgiG49jmVpZvQ",
-    "linkText": "Tur i turen"
+    "linkText": "Tur i turen💃 "
   },
   {
     "day": 3,
-    "mediaType": "spotify",
+    "mediaType": "image",
     "mediaUrl": "Bugg.jpg",
     "text": "Vem gillar inte denna gamla goding :-)",
     "link": "https://open.spotify.com/track/0Ny4yM9JFFuCUZ497ouxKe?si=b01682144afc4a91",
@@ -25,7 +25,7 @@
   },
   {
     "day": 4,
-    "mediaType": "spotify",
+    "mediaType": "image",
     "mediaUrl": "Modernfox.jpg",
     "text": "Nu vill jag hålla dig nära!",
     "link": "https://open.spotify.com/track/3ZFmytdiIda4hXObbBO5c6?si=75c83c17eeba4856",
@@ -33,16 +33,16 @@
   },
   {
     "day": 5,
-    "mediaType": "youtube",
-    "mediaUrl": "https://youtu.be/MCrdpWoLtHM?si=CwkCbI7xd-qZRsth",
+    "mediaType": "image",
+    "mediaUrl": "Bugg.jpg",
     "text": "Detta ska bli kul att prova!",
     "link": "https://youtu.be/MCrdpWoLtHM?si=CwkCbI7xd-qZRsth",
     "linkText": "Dagens test!"
   },
   {
     "day": 6,
-    "mediaType": "spotify",
-    "mediaUrl": "https://open.spotify.com/track/6A0IZ3A7iGKF9QIOKYHwrF?si=ff3ab8f5959e41b6",
+    "mediaType": "image",
+    "mediaUrl": "Bugg.jpg",
     "text": "På med takten!",
     "link": "https://open.spotify.com/track/6A0IZ3A7iGKF9QIOKYHwrF?si=ff3ab8f5959e41b6",
     "linkText": "Nu blir det åka av!"
@@ -50,74 +50,74 @@
   {
     "day": 7,
     "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+7",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 7 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaUrl": "Modernfox.jpg",
+    "text": "Vad tror du om denna ett varv ikväll?",
+    "link": "https://open.spotify.com/track/0mHhAIdFdsvDCG9azUvIdb?si=e770d8b171d54d13",
+    "linkText": "Have I told ..."
   },
   {
     "day": 8,
     "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+8",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 8 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaUrl": "Bugg.jpg",
+    "text": "Den 8:e kör vi",
+    "link": "https://open.spotify.com/track/3JxRyswhWDBro7rdB6LCow?si=09f99d42920642b1",
+    "linkText": "Dagens svängom"
   },
   {
     "day": 9,
     "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+9",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 9 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaUrl": "Modernfox.jpg",
+    "text": "A lot of love and affection, whether I'm right or wrong ...",
+    "link": "https://open.spotify.com/track/1M2nd8jNUkkwrc1dgBPTJz?si=94cb795dc10f4fc0",
+    "linkText": "Min ängel!"
   },
   {
     "day": 10,
     "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+10",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 10 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaUrl": "Bugg.jpg",
+    "text": "Nu svänger det ...",
+    "link": "https://open.spotify.com/track/20NfHnLzpw6qoAKOX8BFaQ?si=43caacab82c74139",
+    "linkText": "På med kjolen 😘"
   },
   {
     "day": 11,
     "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+11",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 11 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaUrl": "Bugg.jpg",
+    "text": "Kan bli lite snurrigt, men vi testar!",
+    "link": "https://youtu.be/WKQSSM09Z0w?si=DJ2pKmPMeWYANvnH",
+    "linkText": "Nu snurrar vi!"
   },
   {
     "day": 12,
     "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+12",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 12 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaUrl": "Modernfox.jpg",
+    "text": "En gammal goding ...",
+    "link": "https://open.spotify.com/track/2xbS49OWwx6xtbZMlkS1VR?si=675ac2508ae74eb8",
+    "linkText": "Den här är mysig"
   },
   {
     "day": 13,
     "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+13",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 13 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaUrl": "Bugg.jpg",
+    "text": "Lite kort men bra",
+    "link": "https://open.spotify.com/track/1IVjRXOWNDhyKF0j22vNsm?si=1ca1574fa91c4c45",
+    "linkText": "Vi snurrar lite!"
   },
   {
     "day": 14,
     "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+14",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 14 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaUrl": "Modernfox.jpg",
+    "text": "Här håller vi varann lite extra hårt ❤️",
+    "link": "https://open.spotify.com/track/2pqJF0pungDqtomjsJpXnv?si=81c101096394464d",
+    "linkText": "Dagens tryckare!"
   },
   {
     "day": 15,
     "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+15",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 15 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaUrl": "Bugg.jpg",
+    "text": "Vill du följa med hem ikväll? ",
+    "link": "https://open.spotify.com/track/6rPc5vguiHLOcGvHx7Wsfx?si=c17e643331f045af",
+    "linkText": "Dagens 😘"
   },
   {
     "day": 16,
@@ -130,65 +130,65 @@
   {
     "day": 17,
     "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+17",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 17 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaUrl": "Modernfox.jpg",
+    "text": "Ikväll vill jag ha dig i min säng ",
+    "link": "https://open.spotify.com/track/1zng9uqqXoPkmU05nsAlsw?si=a3deade565b94f35",
+    "linkText": "Dagens kyss"
   },
   {
     "day": 18,
     "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+18",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 18 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaUrl": "Bugg.jpg",
+    "text": "Nu får jag också prova lite snurrar",
+    "link": "https://youtu.be/uG1cOSvHHNI?si=05NKq7U0BnGm6gNS",
+    "linkText": "Min tur"
   },
   {
     "day": 19,
     "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+19",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 19 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaUrl": "Bugg.jpg",
+    "text": "Detta är en klassiker du nog gillar ...",
+    "link": "https://open.spotify.com/track/1cmdyYqbzc8fvHsmtErxx0?si=75fda606021248cb",
+    "linkText": "Vilket arv!"
   },
   {
     "day": 20,
     "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+20",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 20 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaUrl": "Modernfox.jpg",
+    "text": "Ibland är saknaden stor, då får man kramas lite extra noga!",
+    "link": "https://open.spotify.com/track/2cvgUpzXjHLtoE6P8SccL6?si=2ccaa4503a6b4f44",
+    "linkText": "Kärlek ❤️"
   },
   {
     "day": 21,
     "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+21",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 21 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaUrl": "Bugg.jpg",
+    "text": "Jag hoppas jag ger dig det du vill ha ...",
+    "link": "https://open.spotify.com/track/6YGqMb6MmqcwIHaDSCA7Nq?si=3c0b6960ecc3440a",
+    "linkText": "Vad vill du ha?"
   },
   {
     "day": 22,
     "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+22",
-    "text": "Här är ett mysigt julmeddelande eller en rolig utmaning för den 22 december! Ha en underbar dag!",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaUrl": "Modernfox.jpg",
+    "text": "Men aldrig ska jag ångra, inte en sekund. Sorger suddas ut, blir en lycklig stund.",
+    "link": "https://open.spotify.com/track/6YGqMb6MmqcwIHaDSCA7Nq?si=3c0b6960ecc3440a",
+    "linkText": "Vi har kommit långt!"
   },
   {
     "day": 23,
     "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/165B33/FFF?text=Julbild+23",
-    "text": "Dan före dopparedan! Nu är det nära...",
-    "link": "https://example.com",
-    "linkText": "Dagens erbjudande"
+    "mediaUrl": "Modernfox.jpg",
+    "text": "Dan före dopparedan! Nu är det nära ...",
+    "link": "https://open.spotify.com/track/6YGqMb6MmqcwIHaDSCA7Nq?si=3c0b6960ecc3440a",
+    "linkText": "En klassiker"
   },
   {
     "day": 24,
     "mediaType": "image",
-    "mediaUrl": "https://placehold.co/600x400/D42426/FFF?text=God+Jul!",
-    "text": "GOD JUL! Hoppas du får en fantastisk julafton tillsammans med nära och kära.",
-    "link": "https://example.com",
-    "linkText": "Julklappen"
+    "mediaUrl": "Modernfox.jpg",
+    "text": "GOD JUL! Hoppas på många jular med dig, min älskling",
+    "link": "https://open.spotify.com/track/42eROuSbvedc6rWI4Wixj4?si=b72b5c2f4746489f",
+    "linkText": "Älskar dig!"
   }
 ]
