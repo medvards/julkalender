@@ -72,7 +72,7 @@
     <main class="relative z-10 container mx-auto px-4 py-8 max-w-5xl">
         <header class="text-center mb-10 mt-4">
             <h1 class="text-4xl md:text-6xl font-serif font-bold text-amber-400 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] mb-4">
-                Min älsklings julkalender 2026
+                Julkalendern 2026
             </h1>
             <p class="text-red-50 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed drop-shadow-md font-medium">
                 Välkommen att öppna en lucka varje dag fram till julafton! 
@@ -88,11 +88,14 @@
         <!-- Footer -->
         <footer class="text-center mt-16 pb-8 text-gray-300 text-sm drop-shadow-md space-y-3">
             <p>&copy; 2026 God Jul & Gott Nytt År</p>
-        <!--    <div>
+            <div class="flex flex-wrap justify-center gap-2">
                 <button id="toggle-test-mode" onclick="toggleTestMode()" class="px-4 py-1.5 rounded-full bg-black/40 hover:bg-black/60 text-amber-300 border border-amber-400/30 text-xs transition-colors">
                     Testläge: Av (Klicka för att provöppna alla luckor)
                 </button>
-            </div> -->
+                <button onclick="resetCalendar()" class="px-4 py-1.5 rounded-full bg-black/40 hover:bg-red-900/60 text-red-200 border border-red-400/30 text-xs transition-colors">
+                    Nollställ öppnade luckor
+                </button>
+            </div>
         </footer>
     </main>
 
@@ -144,7 +147,6 @@
 
     <script>
         // --- DATA FÖR ALLA 24 LUCKOR ---
-        // Datan hämtas nu från kalender-data.json
         let calendarData = [];
 
         // --- VARIABLER & TILLSTÅND ---
@@ -154,6 +156,14 @@
         const gridContainer = document.getElementById('calendar-grid');
         const modalBackdrop = document.getElementById('modal-backdrop');
 
+        // Nollställ alla öppnade luckor
+        function resetCalendar() {
+            openedDoors = [];
+            localStorage.removeItem('openedDoors2026');
+            renderCalendar();
+            showToast("Alla luckor är nu stängda och nollställda!");
+        }
+
         // Växla testläge på/av
         function toggleTestMode() {
             testMode = !testMode;
@@ -162,7 +172,7 @@
                 btn.textContent = "Testläge: PÅ (Alla luckor går att öppna)";
                 btn.classList.add('bg-amber-500', 'text-slate-900', 'font-bold');
                 btn.classList.remove('bg-black/40', 'text-amber-300');
-                showToast("Testläge aktiverat! Nu kan du klicka på alla luckor.");
+                showToast("Testläge aktiverat! Luckor sparas inte som öppnade i testläget.");
             } else {
                 btn.textContent = "Testläge: Av (Klicka för att provöppna alla luckor)";
                 btn.classList.remove('bg-amber-500', 'text-slate-900', 'font-bold');
@@ -203,7 +213,6 @@
 
         // Funktion för att ladda JSON-data
         async function loadCalendarData() {
-            // Testa både med understreck och bindestreck, och lägg till tidsstämpel för att undvika cache
             const timestamp = new Date().getTime();
             const possibleFiles = [
                 `calendar_data.json?v=${timestamp}`,
@@ -216,17 +225,16 @@
                     if (response.ok) {
                         calendarData = await response.json();
                         console.log(`Lyckades ladda data från ${file}`);
-                        return; // Avbryt loopen eftersom vi hittade filen!
+                        return;
                     }
                 } catch (e) {
                     // Fortsätt till nästa filnamn om detta misslyckades
                 }
             }
 
-            console.warn("Kunde inte ladda JSON-filen (möjligen p.g.a lokal testning utan server eller att filen saknas). Använder reservdata.");
+            console.warn("Kunde inte ladda JSON-filen. Använder reservdata.");
             showToast("⚠️ Kör på reservdata (JSON-filen kunde inte läsas in)");
             
-            // Reservdata ifall man dubbelklickar på filen lokalt och fetch blockeras
             for (let i = 1; i <= 24; i++) {
                 let mediaType = 'image';
                 let mediaUrl = `https://placehold.co/600x400/165B33/FFF?text=Julbild+${i}`;
@@ -276,11 +284,8 @@
 
             calendarData.forEach(item => {
                 const isOpened = openedDoors.includes(item.day);
-                // Kontrollera om låset ska visas
-                // Om testläge är på visas inga lås, annars visas lås på framtida datum
                 const isFutureDate = !testMode && ((currentMonth === 11 && item.day > currentDay) || currentMonth < 11);
                 
-                // Skapa knapp-elementet
                 const btn = document.createElement('button');
                 btn.id = `door-${item.day}`;
                 btn.className = `aspect-square relative rounded-xl shadow-xl transition-all duration-300 transform border-2 focus:outline-none focus:ring-4 focus:ring-amber-400 group `;
@@ -340,20 +345,17 @@
 
             const isDecember = currentMonth === 11;
             const isAllowedDate = testMode || (isDecember && item.day <= currentDay);
-
-            // Har användaren redan öppnat denna?
             const isAlreadyOpened = openedDoors.includes(item.day);
 
             if (isAllowedDate || isAlreadyOpened) {
-                // Spara att luckan är öppnad (men bara om vi inte bara testar framtida luckor, eller spara ändå)
-                if (!isAlreadyOpened) {
+                // Spara endast luckan som öppnad om vi INTE är i testläge
+                if (!isAlreadyOpened && !testMode) {
                     openedDoors.push(item.day);
                     localStorage.setItem('openedDoors2026', JSON.stringify(openedDoors));
-                    renderCalendar(); // Uppdatera UI:t så luckan blir "öppnad"
+                    renderCalendar();
                 }
                 openModal(item);
             } else {
-                // Om dagen inte har infallit än, skaka på knappen och visa meddelande!
                 buttonElement.classList.add('animate-shake');
                 setTimeout(() => {
                     buttonElement.classList.remove('animate-shake');
@@ -365,11 +367,9 @@
 
         // Öppna modalen med rätt innehåll
         function openModal(item) {
-            // Sätt Titel och Text
             document.getElementById('modal-day-title').textContent = `${item.day} December`;
             document.getElementById('modal-text').textContent = item.text;
 
-            // Hantera länk
             const linkEl = document.getElementById('modal-link');
             if (item.link) {
                 linkEl.href = item.link;
@@ -379,9 +379,7 @@
                 linkEl.classList.add('hidden-el');
             }
 
-            // Hantera Media (Bild, YouTube, Spotify)
             const mediaContainer = document.getElementById('modal-media-container');
-            // Ta bort gammalt innehåll
             const existingMedia = mediaContainer.querySelector('.media-item');
             if (existingMedia) existingMedia.remove();
 
@@ -390,7 +388,6 @@
                 img.src = item.mediaUrl;
                 img.alt = `Lucka ${item.day}`;
                 img.className = "media-item absolute inset-0 w-full h-full object-cover";
-                // Fallback om bilden inte laddas
                 img.onerror = function() {
                     this.src = 'https://placehold.co/600x400/D42426/FFF?text=God+Jul';
                 };
@@ -414,24 +411,21 @@
                 mediaContainer.insertBefore(iframe, mediaContainer.firstChild);
             }
 
-            // Visa modal
             modalBackdrop.classList.remove('hidden-el');
-            document.body.style.overflow = 'hidden'; // Stoppa scrollning av bakgrunden
+            document.body.style.overflow = 'hidden';
         }
 
         // Stäng modalen
         function closeModal() {
             modalBackdrop.classList.add('hidden-el');
-            document.body.style.overflow = 'auto'; // Tillåt scrollning igen
+            document.body.style.overflow = 'auto';
 
-            // Viktigt: Rensa media-containern så att filmer/musik slutar spelas!
             const existingMedia = document.getElementById('modal-media-container').querySelector('.media-item');
             if (existingMedia) {
                 existingMedia.remove();
             }
         }
 
-        // Stäng modalen om man klickar utanför den vita rutan
         modalBackdrop.addEventListener('click', function(event) {
             if (event.target === modalBackdrop) {
                 closeModal();
